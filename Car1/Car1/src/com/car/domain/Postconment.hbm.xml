@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Postconment" table="postconment" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="person" class="com.car.domain.Person" fetch="select">
+            <column name="personID">
+                <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content">
+                <comment>??&#161;&#173;???</comment>
+            </column>
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0">
+                <comment>r?&#161;&#170;????</comment>
+            </column>
+        </property>
+        <set name="postconmentreports" table="postconmentreport" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PostConmentID">
+                    <comment>&#168;&#168;???????????&#168;&#168;??&#168;&#168;??ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Postconmentreport" />
+        </set>
+    </class>
+</hibernate-mapping>

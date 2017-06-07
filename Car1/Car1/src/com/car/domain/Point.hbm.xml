@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Point" table="point" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pointX" type="double">
+            <column name="point_x" precision="22" scale="0" not-null="true">
+                <comment>X??????</comment>
+            </column>
+        </property>
+        <property name="pointY" type="double">
+            <column name="point_y" precision="22" scale="0" not-null="true">
+                <comment>Y??????</comment>
+            </column>
+        </property>
+        <set name="stores" table="store" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pointID" not-null="true">
+                    <comment>
+                    ??&#161;&#170;&#168;&#166;&#161;&#176;???????????&#161;&#170;?&#168;&#166;?&#162;&#227;?&#161;&#177;&#161;&#167;??&#161;&#164;&#168;&#168;?&#161;&#176;?&#161;&#173;??????????&#168;&#168;????&#161;&#167;?&#161;&#177;??????&#161;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Store" />
+        </set>
+        <set name="drivingschools" table="drivingschool" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pointID" not-null="true">
+                    <comment>
+                    &#168;&#166;???????????????&#161;&#177;&#161;&#167;?????&#161;&#167;??&#161;&#227;??????????&#161;&#232;???&#161;&#170;&#168;&#166;&#161;&#176;??????????&#168;&#168;??????&#162;&#227;????&#168;&#166;?&#162;&#227;&#168;&#168;???&#161;&#177;&#161;&#167;??&#161;&#164;&#168;&#168;?&#161;&#176;?&#161;&#173;??????????&#168;&#168;????&#161;&#167;?&#161;&#177;??????&#161;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Drivingschool" />
+        </set>
+        <set name="parks" table="park" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pointID" not-null="true">
+                    <comment>
+                    ???&#168;&#168;???????????????&#161;&#177;&#161;&#167;?????&#161;&#167;??&#161;&#227;??????????&#161;&#232;???&#161;&#170;&#168;&#166;&#161;&#176;??????????&#168;&#168;??????&#162;&#227;????&#168;&#166;?&#162;&#227;&#168;&#168;???&#161;&#177;&#161;&#167;??&#161;&#164;&#168;&#168;?&#161;&#176;?&#161;&#173;??????????&#168;&#168;????&#161;&#167;?&#161;&#177;??????&#161;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Park" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,6 @@
+location.jsp:显示停车场在地图的分布。
+parking_detail.jsp:显示用户选择的停车场的详细信息，同时提供预约buttong。
+parking_add.jsp:停车场用户注册。
+
+
+Action使用约定 默认配置，没有在struts.xml中进行配置

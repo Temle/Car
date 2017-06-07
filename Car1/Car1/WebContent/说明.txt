@@ -1,0 +1,5 @@
+demo.jsp		body模板
+indexpage.jsp	用户登录后的首页
+index.jsp		未登录的用户看到的首页
+navigation.jsp	导航条
+head.jsp		bootstrap架构需要的头部

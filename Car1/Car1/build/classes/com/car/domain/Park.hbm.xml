@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Park" table="park" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="point" class="com.car.domain.Point" fetch="select">
+            <column name="pointID" not-null="true">
+                <comment>
+                ???&#168;&#168;???????????????&#161;&#177;&#161;&#167;?????&#161;&#167;??&#161;&#227;??????????&#161;&#232;???&#161;&#170;&#168;&#166;&#161;&#176;??????????&#168;&#168;??????&#162;&#227;????&#168;&#166;?&#162;&#227;&#168;&#168;???&#161;&#177;&#161;&#167;??&#161;&#164;&#168;&#168;?&#161;&#176;?&#161;&#173;??????????&#168;&#168;????&#161;&#167;?&#161;&#177;??????&#161;&#235;</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" not-null="true">
+                <comment>???&#168;&#168;??????????&#161;&#170;</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" not-null="true">
+                <comment>??&#161;&#227;??&#162;&#227;</comment>
+            </column>
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phoneNumber" not-null="true">
+                <comment>???&#168;&#168;?????&#168;&#168;?&#161;&#177;????&#161;&#177;?&#168;&#168;????&#161;&#164;???</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="description" not-null="true">
+                <comment>???&#168;&#168;?&#161;&#227;??????</comment>
+            </column>
+        </property>
+        <property name="parkSpaceNumber" type="int">
+            <column name="parkSpaceNumber" not-null="true">
+                <comment>???&#168;&#168;?????&#168;&#168;??????&#162;&#227;???&#161;&#227;</comment>
+            </column>
+        </property>
+        <property name="restNumber" type="int">
+            <column name="restNumber" not-null="true">
+                <comment>???&#168;&#168;???????????&#168;&#168;???????&#161;&#227;???</comment>
+            </column>
+        </property>
+        <property name="price" type="double">
+            <column name="price" precision="22" scale="0" not-null="true">
+                <comment>??&#161;&#164;???</comment>
+            </column>
+        </property>
+        <property name="isPass" type="string">
+            <column name="isPass" not-null="true">
+                <comment>????????????&#168;&#166;&#162;&#227;?&#168;&#168;??</comment>
+            </column>
+        </property>
+        <set name="persons" table="person" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parkID">
+                    <comment>???&#168;&#168;???????????ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Person" />
+        </set>
+        <set name="parkorders" table="parkorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parkID" not-null="true">
+                    <comment>&#168;&#168;??????&#161;&#235;&#162;&#227;?&#161;&#192;????&#168;&#168;?????id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Parkorder" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Drivingcoach" table="drivingcoach" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="drivingschool" class="com.car.domain.Drivingschool" fetch="select">
+            <column name="dschoolID" not-null="true">
+                <comment>???????&#161;&#235;&#162;&#227;?&#161;&#192;?&#168;&#166;????????ID</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" not-null="true">
+                <comment>??????????&#161;&#236;&#161;&#227;</comment>
+            </column>
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phoneNumber" not-null="true">
+                <comment>???????&#161;&#177;?&#168;&#168;????&#161;&#164;???</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="description" not-null="true">
+                <comment>????????????</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

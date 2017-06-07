@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Customerservice" table="customerservice" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username">
+                <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;???</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,2 @@
+RichMarker_min.js:在地图中显示RichMarker的lib文件，缺失后无法显示地图中的RichMarker。
+MarkerManager_min.js:管理多个Marker显示、隐藏的lib文件。

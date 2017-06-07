@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Post" table="post" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="person" class="com.car.domain.Person" fetch="select">
+            <column name="personID">
+                <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="title">
+                <comment>???&#168;&#166;??</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type">
+                <comment>?&#161;&#192;????</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="content">
+                <comment>??&#168;C?????&#161;&#173;???</comment>
+            </column>
+        </property>
+        <property name="nnumber" type="java.lang.Integer">
+            <column name="nNumber">
+                <comment>???&#168;&#168;????&#161;&#227;&#168;&#166;??</comment>
+            </column>
+        </property>
+        <property name="pnumber" type="java.lang.Integer">
+            <column name="pNumber">
+                <comment>???&#168;&#168;&#161;&#236;???&#161;&#227;&#168;&#166;??</comment>
+            </column>
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0">
+                <comment>?&#161;&#170;????</comment>
+            </column>
+        </property>
+        <set name="postreports" table="postreport" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PostID">
+                    <comment>&#168;&#168;??????????&#168;C???ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Postreport" />
+        </set>
+    </class>
+</hibernate-mapping>

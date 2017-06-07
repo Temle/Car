@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.User" table="user" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="person" class="com.car.domain.Person" fetch="select">
+            <column name="personID" not-null="true">
+                <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;?????&#161;&#177;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="20" not-null="true">
+                <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;???(20??&#161;&#170;????????&#161;&#173;)</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" not-null="true">
+                <comment>??????(20??&#161;&#170;????????&#161;&#173;)</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

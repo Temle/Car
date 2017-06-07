@@ -1,0 +1,4 @@
+		jsp页面								 Action						  Action字符串
+parking-add-success.jsp					ParkingAddAction					SUCCESS
+parking-add-error.jsp					ParkingAddAction					ERROR
+parking-list-success.jsp				ParkingListAction					SUCCESS

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Storenotification" table="storenotification" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="store" class="com.car.domain.Store" fetch="select">
+            <column name="stroeID">
+                <comment>??&#161;&#170;&#168;&#166;&#161;&#176;?ID</comment>
+            </column>
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content">
+                <comment>??&#161;&#173;???</comment>
+            </column>
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0">
+                <comment>?&#161;&#170;????</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="10">
+                <comment>??&#161;&#170;&#168;&#166;&#161;&#176;??&#161;&#192;????</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

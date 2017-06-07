@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 20:49:12 by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="com.car.domain.Person" table="person" catalog="car" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="drivingschool" class="com.car.domain.Drivingschool" fetch="select">
+            <column name="divingSchoolID">
+                <comment>&#168;&#166;???????????ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="park" class="com.car.domain.Park" fetch="select">
+            <column name="parkID">
+                <comment>???&#168;&#168;???????????ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="store" class="com.car.domain.Store" fetch="select">
+            <column name="storeID">
+                <comment>??&#161;&#170;&#168;&#166;&#161;&#176;???????ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="vip" class="com.car.domain.Vip" fetch="select">
+            <column name=" vipID">
+                <comment>????&#161;&#174;?ID</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true">
+                <comment>?&#161;&#236;&#161;&#176;???</comment>
+            </column>
+        </property>
+        <property name="age" type="int">
+            <column name="age" not-null="true">
+                <comment>???&#168;&#166;??</comment>
+            </column>
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="2" not-null="true">
+                <comment>?&#162;&#227;&#161;&#236;???</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="50" not-null="true">
+                <comment>??&#161;&#227;??&#162;&#227;</comment>
+            </column>
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phoneNumber" length="50" not-null="true">
+                <comment>?&#161;&#177;?&#168;&#168;????&#161;&#164;???</comment>
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true">
+                <comment>&#168;&#166;????&#161;&#192;</comment>
+            </column>
+        </property>
+        <property name="birthDate" type="date">
+            <column name="birthDate" length="0">
+                <comment>?&#161;&#177;??&#161;&#170;?</comment>
+            </column>
+        </property>
+        <property name="isAdministrator" type="string">
+            <column name="isAdministrator" length="2" not-null="true">
+                <comment>????????????????&#161;&#174;????&#168;&#168;?&#161;&#227;</comment>
+            </column>
+        </property>
+        <set name="storeorders" table="storeorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID" not-null="true">
+                    <comment>???&#168;&#168;?????????&#161;&#177;&#161;&#167;??&#161;&#164;???id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Storeorder" />
+        </set>
+        <set name="subjects" table="subject" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Subject" />
+        </set>
+        <set name="storereports" table="storereport" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Storereport" />
+        </set>
+        <set name="drivingcompanions" table="drivingcompanion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Drivingcompanion" />
+        </set>
+        <set name="personcars" table="personcar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID" not-null="true">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Personcar" />
+        </set>
+        <set name="conments" table="conment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Conment" />
+        </set>
+        <set name="parkorders" table="parkorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID" not-null="true">
+                    <comment>&#168;&#168;??????&#161;&#235;&#162;&#227;?&#161;&#192;????&#168;&#168;?????id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Parkorder" />
+        </set>
+        <set name="posts" table="post" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Post" />
+        </set>
+        <set name="postreports" table="postreport" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Postreport" />
+        </set>
+        <set name="backtalkings" table="backtalking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Backtalking" />
+        </set>
+        <set name="postconmentreports" table="postconmentreport" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Postconmentreport" />
+        </set>
+        <set name="postconments" table="postconment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Postconment" />
+        </set>
+        <set name="drivingcorders" table="drivingcorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID">
+                    <comment>???&#168;&#168;?????????&#161;&#177;&#161;&#167;??&#161;&#164;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Drivingcorder" />
+        </set>
+        <set name="drivingorders" table="drivingorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID" not-null="true">
+                    <comment>???&#168;&#168;?????????&#161;&#177;&#161;&#167;??&#161;&#164;???id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.Drivingorder" />
+        </set>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="personID" not-null="true">
+                    <comment>?&#161;&#177;&#161;&#167;??&#161;&#164;?????&#161;&#177;ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.car.domain.User" />
+        </set>
+    </class>
+</hibernate-mapping>
